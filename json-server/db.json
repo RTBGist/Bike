@@ -1,0 +1,70 @@
+{
+  "clubs": [
+    {
+      "id": "2",
+      "name": "Manchester City",
+      "description": "«Манче́стер Си́ти» — английский профессиональный футбольный клуб из Манчестера, выступающий в Премьер-лиге, высшем дивизионе в системе футбольных лиг Англии. Был основан в 1880 году под названием «Сент Маркс ». В 1887 году был переименован в «Ардуик». С 1894 года называется «Манчестер Сити».",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/1200px-Manchester_City_FC_badge.svg.png"
+    },
+    {
+      "name": "Newcastle United",
+      "description": "«Ньюка́сл Юна́йтед» — английский профессиональный футбольный клуб из города Ньюкасл-апон-Тайн на северо-востоке Англии. По итогам сезона 2016/17 выиграл Чемпионшип и завоевал себе право выхода в Премьер-лигу. Домашний стадион «Ньюкасл Юнайтед», «Сент-Джеймс Парк», был открыт в 1880 году.",
+      "logo": "https://upload.wikimedia.org/wikipedia/ru/thumb/5/56/Newcastle_United_Logo.svg/1200px-Newcastle_United_Logo.svg.png",
+      "id": "jMJTlZj"
+    },
+    {
+      "name": "123",
+      "description": "123",
+      "logo": "123",
+      "id": "-5mbXba"
+    },
+    {
+      "name": "123",
+      "description": "123",
+      "logo": "123",
+      "id": "gQ47cEs"
+    },
+    {
+      "name": "123",
+      "description": "123",
+      "logo": "123",
+      "id": "mbWSmGg"
+    },
+    {
+      "name": "123",
+      "description": "123",
+      "logo": "123",
+      "id": "FzHVb1h"
+    },
+    {
+      "name": "123",
+      "description": "123",
+      "logo": "123",
+      "id": "sJEac8g"
+    },
+    {
+      "name": "123",
+      "description": "123",
+      "logo": "123",
+      "id": "hxbtvmm"
+    },
+    {
+      "name": "123",
+      "description": "123",
+      "logo": "123",
+      "id": "tnbR6mY"
+    },
+    {
+      "name": "123rtg",
+      "description": "123",
+      "logo": "123",
+      "id": "obEXw9w"
+    },
+    {
+      "name": "123",
+      "description": "123",
+      "logo": "123",
+      "id": "NxMKimj"
+    }
+  ]
+}
