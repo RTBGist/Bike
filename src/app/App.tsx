@@ -1,6 +1,7 @@
 import {Routes, Route, Link} from 'react-router-dom'
-import HomePage from "../pages/HomePage";
-import SearchPage from "../pages/SearchPage";
+import {HomePage} from "src/pages/HomePage";
+import {SearchPage} from "src/pages/SearchPage";
+
 
 const App = () => {
 	return (

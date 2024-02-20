@@ -1,7 +1,16 @@
 import {configureStore} from "@reduxjs/toolkit";
+import {clubsApi} from "src/pages/HomePage";
+
+
 
 export const store = configureStore({
-	reducer: {},
+	reducer: {
+		[clubsApi.reducerPath]: clubsApi.reducer
+	},
+	// Adding the api middleware enables caching, invalidation, polling,
+	// and other useful features of `rtk-query`.
+	middleware: (getDefaultMiddleware) =>
+			getDefaultMiddleware().concat(clubsApi.middleware),
 })
 
 export type AppDispatch = typeof store.dispatch
