@@ -1,5 +1,7 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {Club} from "../types/types";
+import {Club} from "src/entites/ClubCard/model/types";
+
+
 
 export const clubsApi = createApi({
 	reducerPath: 'clubsApi',

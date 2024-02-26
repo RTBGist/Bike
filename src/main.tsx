@@ -3,7 +3,8 @@ import {createRoot} from 'react-dom/client'
 import App from './app/App.tsx'
 import {BrowserRouter} from "react-router-dom";
 import './app/styles/index.scss';
-import {StoreProvider} from "./app/providers/StoreProvider";
+import {StoreProvider} from "src/app/providers/StoreProvider";
+import {TanStackProvider} from "src/app/providers/TanStackProvider";
 
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);
@@ -11,7 +12,9 @@ const root = createRoot(domNode);
 root.render(
 		<BrowserRouter>
 			<StoreProvider>
-				<App />
+				<TanStackProvider>
+					<App />
+				</TanStackProvider>
 			</StoreProvider>
 		</BrowserRouter>
 );

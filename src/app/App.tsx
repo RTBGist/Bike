@@ -1,6 +1,7 @@
 import {Routes, Route, Link} from 'react-router-dom'
 import {HomePage} from "src/pages/HomePage";
-import {SearchPage} from "src/pages/SearchPage";
+import {TanStackPage} from "src/pages/TanStackPage";
+
 
 
 const App = () => {
@@ -9,17 +10,17 @@ const App = () => {
 				<nav>
 					<ul>
 						<li>
-							<Link to="/">Home</Link>
+							<Link to="/">RTK Query</Link>
 						</li>
 						<li>
-							<Link to="/search">Search</Link>
+							<Link to="/tan">TanStack Query</Link>
 						</li>
 					</ul>
 				</nav>
 
 				<Routes>
 					<Route path='*' element={<HomePage />}></Route>
-					<Route path='/search' element={<SearchPage />}></Route>
+					<Route path='/tan' element={<TanStackPage />}></Route>
 				</Routes>
 			</main>
 	);
