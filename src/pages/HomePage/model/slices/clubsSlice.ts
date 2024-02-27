@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {Club} from "src/entites/ClubCard/model/types";
+import {Club} from "src/entites/Club";
 
 
 

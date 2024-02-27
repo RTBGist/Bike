@@ -1,4 +1,4 @@
-import {Routes, Route, Link} from 'react-router-dom'
+import {Routes, Route, NavLink} from 'react-router-dom'
 import {HomePage} from "src/pages/HomePage";
 import {TanStackPage} from "src/pages/TanStackPage";
 
@@ -7,13 +7,23 @@ import {TanStackPage} from "src/pages/TanStackPage";
 const App = () => {
 	return (
 			<main className="h-screen">
-				<nav>
-					<ul>
+				<nav className="w-full bg-sky-400 py-3 px-3 mb-6">
+					<ul className="flex justify-center gap-4">
 						<li>
-							<Link to="/">RTK Query</Link>
+							<NavLink
+									to="/"
+									className={({ isActive }) => (isActive ? 'font-bold text-white' : 'transition-all text-white/75 hover:text-white')}
+							>
+								RTK Query
+							</NavLink>
 						</li>
 						<li>
-							<Link to="/tan">TanStack Query</Link>
+							<NavLink
+									className={({ isActive }) => (isActive ? 'font-bold text-white' : 'transition-all text-white/75 hover:text-white')}
+									to="/tan"
+							>
+								TanStack Query
+							</NavLink>
 						</li>
 					</ul>
 				</nav>

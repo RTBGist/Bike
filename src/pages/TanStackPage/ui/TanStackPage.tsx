@@ -1,7 +1,8 @@
 import {useQuery} from "@tanstack/react-query";
 import {getTanClubs} from "../model/getTanClubs/getTanClubs";
-import {Club} from "src/entites/ClubCard/model/types";
-import {ClubCard} from "src/entites/ClubCard";
+
+import {ClubCard} from "src/entites/Club";
+import {Club} from "src/entites/Club/model/types";
 
 export const TanStackPage = () => {
 	const { isPending, error, data } = useQuery(getTanClubs);

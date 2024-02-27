@@ -1,4 +1,4 @@
-import { Club } from '../model/types';
+import { Club } from '../../model/types';
 
 export const ClubCard = ({club}: Club ) => {
 	const { name, description, logo } = club;

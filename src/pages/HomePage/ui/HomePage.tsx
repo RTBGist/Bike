@@ -1,6 +1,6 @@
 import {useGetAllClubsQuery} from "../model/slices/clubsSlice";
-import {ClubCard} from "src/entites/ClubCard";
-import {Club} from "src/entites/ClubCard/model/types";
+import {ClubCard, ClubForm} from "src/entites/Club";
+import {Club} from "src/entites/Club/model/types";
 
 export const HomePage = () => {
 	const {data, error, isLoading} = useGetAllClubsQuery();
@@ -14,8 +14,10 @@ export const HomePage = () => {
 	}
 
 	return (
-			<div>
+			<>
+				<ClubForm />
+
 				{!!data && data.map((club: Club) => <ClubCard club={club} key={club.id} />)}
-			</div>
+			</>
 	);
 };
