@@ -6,10 +6,20 @@ import {Club} from "src/entites/Club";
 export const clubsApi = createApi({
 	reducerPath: 'clubsApi',
 	baseQuery: fetchBaseQuery( { baseUrl: 'http://localhost:8000' } ),
+	tagTypes: ['Club'], // объявляем используемые теги
 	endpoints: (build) => ({
 		getAllClubs: build.query<Club[]>({
-			query: () => 'clubs/'
+			query: () => 'clubs/',
+			providesTags: ['Club'], // объявляем еще раз в запросе тег
 		}),
+		createClub: build.mutation({
+			query: (body) => ({
+				url: 'clubs',
+				method: 'POST',
+				body,
+			}),
+			invalidatesTags: ['Club'], // указываем какие теги нужно обновить при данном запросе
+		})
 		// Обработка запроса вручную
 		// getAllClubs: (build.query({
 		// 	queryFn: async (arg) => {
@@ -25,4 +35,4 @@ export const clubsApi = createApi({
 });
 
 
-export const { useGetAllClubsQuery } = clubsApi;
+export const { useGetAllClubsQuery, useCreateClubMutation } = clubsApi;
