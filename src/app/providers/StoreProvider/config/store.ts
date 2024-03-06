@@ -1,5 +1,6 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {clubsApi} from "src/pages/HomePage";
+import {clubsApi} from "src/entites/Club";
+
 
 
 

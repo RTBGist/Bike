@@ -1,8 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {Club} from "src/entites/Club";
 
-
-
 export const clubsApi = createApi({
 	reducerPath: 'clubsApi',
 	baseQuery: fetchBaseQuery( { baseUrl: 'http://localhost:8000' } ),
@@ -12,11 +10,39 @@ export const clubsApi = createApi({
 			query: () => 'clubs/',
 			providesTags: ['Club'], // объявляем еще раз в запросе тег
 		}),
+		getCurrentClub: build.query<Club>({
+			query: (id: string) => ({
+				url: `clubs/${id}`,
+			}),
+		}),
+		updateClub: build.mutation({
+			query: ({ id, name, description, logo }) => ({
+				url: `clubs/${id}`,
+				method: 'PUT',
+				body: {
+					name,
+					description,
+					logo
+				}
+			}),
+			invalidatesTags: ['Club'], // указываем какие теги нужно обновить при данном запросе
+		}),
 		createClub: build.mutation({
-			query: (body) => ({
+			query: ({name, description, logo}) => ({
 				url: 'clubs',
 				method: 'POST',
-				body,
+				body: {
+					name,
+					description,
+					logo
+				},
+			}),
+			invalidatesTags: ['Club'], // указываем какие теги нужно обновить при данном запросе
+		}),
+		deleteClub: build.mutation({
+			query: (id: string) => ({
+				url: `clubs/${id}`,
+				method: 'DELETE',
 			}),
 			invalidatesTags: ['Club'], // указываем какие теги нужно обновить при данном запросе
 		})
@@ -35,4 +61,4 @@ export const clubsApi = createApi({
 });
 
 
-export const { useGetAllClubsQuery, useCreateClubMutation } = clubsApi;
+export const { useGetAllClubsQuery, useGetCurrentClubQuery, useCreateClubMutation, useDeleteClubMutation, useUpdateClubMutation } = clubsApi;

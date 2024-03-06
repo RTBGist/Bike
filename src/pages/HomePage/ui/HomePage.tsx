@@ -1,12 +1,14 @@
-import {useCreateClubMutation, useGetAllClubsQuery} from "../model/slices/clubsSlice";
+import {useCreateClubMutation, useDeleteClubMutation, useGetAllClubsQuery} from "src/entites/Club/model/slices/clubsSlice";
 import {ClubCard, ClubForm} from "src/entites/Club";
 import {Club} from "src/entites/Club/model/types";
 
 export const HomePage = () => {
 	const {data, error, isLoading} = useGetAllClubsQuery();
-	const [createClub] = useCreateClubMutation();
+	const [createClub, { isLoading: isCreating }] = useCreateClubMutation();
+	const [deleteClub, { isLoading: isDeleting }] = useDeleteClubMutation();
 
-	if(isLoading) {
+
+	if(isLoading || isCreating || isDeleting) {
 		return <div className="text-lg font-bold text-center m-auto">Идет загрузка...</div>
 	}
 
@@ -18,7 +20,7 @@ export const HomePage = () => {
 			<>
 				<ClubForm handleOnSubmit={createClub} />
 
-				{!!data && data.map((club: Club) => <ClubCard club={club} key={club.id} />)}
+				{!!data && data.map((club: Club) => <ClubCard onDelete={deleteClub} {...club} key={club.id} />)}
 			</>
 	);
 };

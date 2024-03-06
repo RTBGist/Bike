@@ -1,6 +1,7 @@
 import {Routes, Route, NavLink} from 'react-router-dom'
 import {HomePage} from "src/pages/HomePage";
 import {TanStackPage} from "src/pages/TanStackPage";
+import {DetailPage} from "src/pages/DetailPage";
 
 
 
@@ -31,6 +32,7 @@ const App = () => {
 				<Routes>
 					<Route path='*' element={<HomePage />}></Route>
 					<Route path='/tan' element={<TanStackPage />}></Route>
+					<Route path='/:id' element={<DetailPage />}></Route>
 				</Routes>
 			</main>
 	);
