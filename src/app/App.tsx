@@ -2,6 +2,7 @@ import {Routes, Route, NavLink} from 'react-router-dom'
 import {HomePage} from "src/pages/HomePage";
 import {TanStackPage} from "src/pages/TanStackPage";
 import {DetailPage} from "src/pages/DetailPage";
+import {RtkPage} from "src/pages/RTKPage";
 
 
 
@@ -26,12 +27,21 @@ const App = () => {
 								TanStack Query
 							</NavLink>
 						</li>
+						<li>
+							<NavLink
+									className={({ isActive }) => (isActive ? 'font-bold text-white' : 'transition-all text-white/75 hover:text-white')}
+									to="/rtk"
+							>
+								RTK
+							</NavLink>
+						</li>
 					</ul>
 				</nav>
 
 				<Routes>
 					<Route path='*' element={<HomePage />}></Route>
 					<Route path='/tan' element={<TanStackPage />}></Route>
+					<Route path='/rtk' element={<RtkPage />}></Route>
 					<Route path='/:id' element={<DetailPage />}></Route>
 				</Routes>
 			</main>

@@ -1,11 +1,31 @@
 import {useLocation} from "react-router-dom";
-import {ClubForm} from "src/entites/Club";
-import {useGetCurrentClubQuery, useUpdateClubMutation} from "src/entites/Club/model/slices/clubsSlice";
+import {useEffect} from "react";
 import {useMutation, useQuery} from "@tanstack/react-query";
-import {fetchClubById, updateTanClub} from "src/entites/Club/model/tanStack/tanStackFunctions";
+
+import {useAppDispatch, useAppSelector} from "src/app/providers/StoreProvider";
+import {
+	fetchClubById,
+	updateTanClub,
+	ClubForm,
+	getClub,
+	selectClub,
+	useGetCurrentClubQuery,
+	useUpdateClubMutation,
+	updateClub
+} from "src/entites/Club";
+
+
+
 
 export const DetailPage = () => {
 	let {pathname} = useLocation();
+	// RTK
+	const club = useAppSelector(selectClub);
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		dispatch(getClub(pathname.slice(1)))
+	}, [])
 
 	// RTK Query
 	// const {data: club, isLoading} = useGetCurrentClubQuery(pathname.slice(1));
@@ -13,22 +33,22 @@ export const DetailPage = () => {
 
 	// TanStack Query
 	// getCurrentClub
-	const { data, isPending: isLoading } = useQuery({
-		queryKey: ['tanClubs', pathname.slice(1)],
-		queryFn: () => fetchClubById(pathname.slice(1)),
-	});
-	const {data: club} = data || '';
+	// const { data, isPending: isLoading } = useQuery({
+	// 	queryKey: ['tanClubs', pathname.slice(1)],
+		// queryFn: () => fetchClubById(pathname.slice(1)),
+	// });
+	// const {data: club} = data || '';
 	// updateCurrentClub
-	const { mutate: updateClub } = useMutation(updateTanClub);
+	// const { mutate: updateClub } = useMutation(updateTanClub);
 
 
-	if(isLoading) {
+	if(false) {
 		return <div className="text-lg font-bold text-center m-auto">Идет загрузка...</div>
 	}
 
 	return (
 			<>
-				<ClubForm {...club} handleOnSubmit={updateClub} id={pathname.slice(1)} />
+				<ClubForm {...club} handleOnSubmit={(club) => {dispatch(updateClub(club))}} id={pathname.slice(1)} />
 			</>
 	);
 };

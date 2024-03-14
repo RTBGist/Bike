@@ -1,5 +1,4 @@
-import {useCreateClubMutation, useDeleteClubMutation, useGetAllClubsQuery} from "src/entites/Club/model/slices/clubsSlice";
-import {ClubCard, ClubForm} from "src/entites/Club";
+import {ClubCard, ClubForm, useCreateClubMutation, useDeleteClubMutation, useGetAllClubsQuery} from "src/entites/Club";
 import {Club} from "src/entites/Club/model/types";
 
 export const HomePage = () => {
