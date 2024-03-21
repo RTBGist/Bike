@@ -4,8 +4,16 @@ import axios from "axios";
 export const getClub = createAsyncThunk(
 		'clubsSlice/getClub',
 		async (id: string, thunkAPI) => {
-			const response = await axios.get(`http://localhost:8000/clubs/${id}`);
+			try {
+				const response = await axios.get(`http://localhost:8000/clubs/${id}`);
 
-			return response.data;
+				if(!response.data) {
+					throw new Error()
+				}
+
+				return response.data;
+			} catch (e) {
+				return thunkAPI.rejectWithValue(e)
+			}
 		}
 )

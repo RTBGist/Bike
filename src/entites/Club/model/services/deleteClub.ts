@@ -5,12 +5,20 @@ import {getAllClubs} from "src/entites/Club";
 export const deleteClub = createAsyncThunk(
 		'clubsSlice/deleteClub',
 		async (id: string, thunkAPI) => {
-			const response = await axios.delete(`http://localhost:8000/clubs/${id}`);
+			try {
+				const response = await axios.delete(`http://localhost:8000/clubs/${id}`);
 
-			if(response) {
-				thunkAPI.dispatch(getAllClubs());
+				if(!response.data) {
+					throw new Error()
+				}
+
+				if(response) {
+					thunkAPI.dispatch(getAllClubs());
+				}
+
+				return response.data;
+			} catch (e) {
+				return thunkAPI.rejectWithValue(e);
 			}
-
-			return response.data;
 		}
 )

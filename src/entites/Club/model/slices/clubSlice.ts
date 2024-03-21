@@ -12,11 +12,11 @@ interface initialStateProps {
 
 const initialState: initialStateProps = {
 	loading: false,
+	error: '',
 	entities: {
 		clubDetail: {},
 		clubs: []
 	},
-	error: ''
 }
 
 const clubSlice = createSlice({

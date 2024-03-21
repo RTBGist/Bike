@@ -24,5 +24,7 @@ export { updateClub } from './model/services/updateClub';
 export { getClub } from './model/services/getClub';
 export {
 	selectAllClubs,
-	selectClub
+	selectClub,
+	selectError,
+	selectLoading
 } from './model/selectors/selectors';

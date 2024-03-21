@@ -6,12 +6,20 @@ import {getAllClubs} from "src/entites/Club";
 export const createClub = createAsyncThunk(
 		'clubsSlice/createClub',
 		async (club: Club, thunkAPI) => {
-			const response = await axios.post('http://localhost:8000/clubs', club);
+			try {
+				const response = await axios.post('http://localhost:8000/clubs', club);
 
-			if(response) {
-				thunkAPI.dispatch(getAllClubs());
+				if(!response.data) {
+					throw new Error()
+				}
+
+				if(response) {
+					thunkAPI.dispatch(getAllClubs());
+				}
+
+				return response.data;
+			} catch (e) {
+				return thunkAPI.rejectWithValue(e);
 			}
-
-			return response.data;
 		}
 )
